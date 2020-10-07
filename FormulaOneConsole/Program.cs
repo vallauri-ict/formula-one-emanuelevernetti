@@ -64,7 +64,7 @@ namespace FormulaOneConsole {
                     Console.WriteLine("Si sono verificati " + nErr + " errori");
                 }
                 else {
-                    Console.Write("\nEsecuzione effettuata correttamente");
+                    Console.Write("\nEsecuzione effettuata correttamente\n\n");
                 }
             }
         }
