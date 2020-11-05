@@ -20,7 +20,7 @@ VALUES(
 		'C:\data\formulaone\img\lewisHamilton.jpg',
 		1,
 		159,
-		'UK'        
+		'GB'        
 );
 INSERT INTO [Driver]
 VALUES(
@@ -53,7 +53,7 @@ VALUES(
 		'C:\data\formulaone\img\landoNorris.jpg',
 		3,
 		1,
-		'UK'       
+		'GB'       
 );
 INSERT INTO [Driver]
 VALUES(
@@ -218,7 +218,7 @@ VALUES(
 		'C:\data\formulaone\img\georgeRussell.jpg',
 		10,
 		0,
-		'UK'        
+		'GB'        
 );
 INSERT INTO [Driver]
 VALUES(

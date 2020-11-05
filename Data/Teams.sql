@@ -22,7 +22,7 @@ VALUES(
 		'James Allison',
 		'Mercedes',
 		'C:\\data\\formulaone\\img\\mercedesCarImage.jpg',
-		'UK',
+		'GB',
 		6,
 		113        
 );
@@ -35,7 +35,7 @@ VALUES(
 		'Pierre Waché',
 		'Honda',
 		'C:\\data\\formulaone\\img\\redBullCarImage.jpg',
-		'UK',
+		'GB',
 		4,
 		66        
 );
@@ -48,7 +48,7 @@ VALUES(
 		'James Key',
 		'Renault',
 		'C:\\data\\formulaone\\img\\mcLarenCarImage.jpg',
-		'UK',
+		'GB',
 		8,
 		155        
 );
@@ -61,7 +61,7 @@ VALUES(
 		'Andrew Green',
 		'BWT Mercedes',
 		'C:\\data\\formulaone\\img\\racingPointCarImage.jpg',
-		'UK',
+		'GB',
 		0,
 		0        
 );
@@ -74,7 +74,7 @@ VALUES(
 		'TBC',
 		'Renault',
 		'C:\\data\\formulaone\\img\\renaultCarImage.jpg',
-		'UK',
+		'GB',
 		2,
 		20        
 );
@@ -139,7 +139,7 @@ VALUES(
 		'TBC',
 		'Mercedes',
 		'C:\\data\\formulaone\\img\\williamsCarImage.jpg',
-		'UK',
+		'GB',
 		9,
 		129        
 );
