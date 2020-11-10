@@ -1,7 +1,6 @@
 CREATE TABLE [dbo].[Country] (
-[countryCode] char(2) NOT NULL default '',
-[countryName] varchar(100) NOT NULL default '',
-PRIMARY KEY ([countryCode])
+  [countryCode] char(2) PRIMARY KEY NOT NULL,
+  [countryName] varchar(255) NOT NULL
 );
 
 INSERT INTO [Country] VALUES ('AF', 'Afghanistan');

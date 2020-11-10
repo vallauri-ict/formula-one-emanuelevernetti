@@ -1,20 +1,20 @@
-CREATE TABLE [dbo].[Team]
-(
-	[ID] int PRIMARY KEY IDENTITY(1,1),
-    [TeamName] varchar(255) UNIQUE NOT NULL,
-    [TeamLogo] image NOT NULL,
-    [Base] varchar(255) NOT NULL,
-    [TeamChief] varchar(255) NOT NULL,
-    [TechnicalChief] varchar(255) NOT NULL,
-	[PowerUnit] varchar(255) NOT NULL,
-	[CarImage] image NOT NULL,
-	[CountryID] char(2) NOT NULL,
-	[WorldChampionships] int default 0,
-    [PolePositions] int default 0
+CREATE TABLE [dbo].[Team] (
+  [id] int PRIMARY KEY,
+  [teamName] varchar(255) UNIQUE NOT NULL,
+  [teamLogo] image NOT NULL,
+  [base] varchar(255) NOT NULL,
+  [teamChief] varchar(255) NOT NULL,
+  [technicalChief] varchar(255) NOT NULL,
+  [powerUnit] varchar(255) NOT NULL,
+  [carImage] image NOT NULL,
+  [country] char(2) NOT NULL,
+  [worldChampionships] int DEFAULT (0),
+  [polePositions] int DEFAULT (0)
 );
 
 INSERT INTO [Team]
 VALUES(
+		1,
 		'Mercedes-AMG Petronas F1 Team',
 		'C:\\data\\formulaone\\img\\mercedesTeamLogo.jpg',
         'Brackley',
@@ -28,6 +28,7 @@ VALUES(
 );
 INSERT INTO [Team]
 VALUES(
+		2,
 		'Aston Martin Red Bull Racing',
 		'C:\\data\\formulaone\\img\\redBullTeamLogo.jpg',
         'Milton Keynes',
@@ -41,6 +42,7 @@ VALUES(
 );
 INSERT INTO [Team]
 VALUES(
+		3,
 		'McLaren F1 Team',
 		'C:\\data\\formulaone\\img\\mcLarenTeamLogo.jpg',
         'Woking',
@@ -54,6 +56,7 @@ VALUES(
 );
 INSERT INTO [Team]
 VALUES(
+		4,
 		'BWT Racing Point F1 Team',
 		'C:\\data\\formulaone\\img\\racingPointTeamLogo.jpg',
         'Silverstone',
@@ -67,6 +70,7 @@ VALUES(
 );
 INSERT INTO [Team]
 VALUES(
+		5,
 		'Renault DP World F1 Team',
 		'C:\\data\\formulaone\\img\\renaultTeamLogo.jpg',
         'Enstone',
@@ -80,6 +84,7 @@ VALUES(
 );
 INSERT INTO [Team]
 VALUES(
+		6,
 		'Scuderia Ferrari Mission Winnow',
 		'C:\\data\\formulaone\\img\\ferrariTeamLogo.jpg',
         'Maranello',
@@ -93,6 +98,7 @@ VALUES(
 );
 INSERT INTO [Team]
 VALUES(
+		7,
 		'Scuderia AlphaTauri Honda',
 		'C:\\data\\formulaone\\img\\alphaTauriTeamLogo.jpg',
         'Faenza',
@@ -106,6 +112,7 @@ VALUES(
 );
 INSERT INTO [Team]
 VALUES(
+		8,
 		'Alfa Romeo Racing ORLEN',
 		'C:\\data\\formulaone\\img\\alfaRomeoTeamLogo.jpg',
         'Hinwil',
@@ -119,6 +126,7 @@ VALUES(
 );
 INSERT INTO [Team]
 VALUES(
+		9,
 		'Haas F1 Team',
 		'C:\\data\\formulaone\\img\\haasTeamLogo.jpg',
         'Kannapolis',
@@ -131,7 +139,8 @@ VALUES(
 		0        
 );
 INSERT INTO [Team]
-VALUES(
+VALUES(	
+		10,
 		'Williams Racing',
 		'C:\\data\\formulaone\\img\\williamsTeamLogo.jpg',
         'Grove',

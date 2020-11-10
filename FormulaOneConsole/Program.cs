@@ -18,10 +18,15 @@ namespace FormulaOneConsole
             char scelta = ' ';
             do
             {
+                Console.WriteLine("*** DDL & DML COMMANDS ***");
                 Console.WriteLine("1 - Create Countries");
                 Console.WriteLine("2 - Create Teams");
                 Console.WriteLine("3 - Create Drivers");
-                Console.WriteLine("4 - Create Relationships");
+                Console.WriteLine("4 - Create Races");
+                Console.WriteLine("5 - Create Circuits");
+                Console.WriteLine("6 - Create Results");
+                Console.WriteLine("C - Create Foreign Keys (Relationships)");
+                Console.WriteLine("D - Drop Foreign Keys (Relationships)");
                 Console.WriteLine("---------------");
                 Console.WriteLine("R - RESET DB");
                 Console.WriteLine("---------------");
@@ -47,7 +52,27 @@ namespace FormulaOneConsole
                         }
                     case '4':
                         {
-                            dbUtils.ExecuteSqlScript("Relationships.sql");
+                            dbUtils.ExecuteSqlScript("Races.sql");
+                            break;
+                        }
+                    case '5':
+                        {
+                            dbUtils.ExecuteSqlScript("Circuits.sql");
+                            break;
+                        }
+                    case '6':
+                        {
+                            dbUtils.ExecuteSqlScript("Results.sql");
+                            break;
+                        }
+                    case 'C':
+                        {
+                            dbUtils.ExecuteSqlScript("createForeignKeys.sql");
+                            break;
+                        }
+                    case 'D':
+                        {
+                            dbUtils.ExecuteSqlScript("deleteForignKeys.sql");
                             break;
                         }
                     case 'R':

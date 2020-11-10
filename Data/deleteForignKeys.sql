@@ -1,0 +1,15 @@
+﻿ALTER TABLE [Driver] DROP CONSTRAINT [FK_Driver_Country];
+
+ALTER TABLE [Team] DROP CONSTRAINT [FK_Team_Country];
+
+ALTER TABLE [Circuit] DROP CONSTRAINT [FK_Circuit_Country];
+
+ALTER TABLE [Driver] DROP CONSTRAINT [FK_Driver_Team];
+
+ALTER TABLE [Race] DROP CONSTRAINT [FK_Race_Circuit];
+
+ALTER TABLE [Result] DROP CONSTRAINT [FK_Result_Team];
+
+ALTER TABLE [Result] DROP CONSTRAINT [FK_Result_Driver];
+
+ALTER TABLE [Result] DROP CONSTRAINT [FK_Result_Race];

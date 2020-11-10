@@ -59,7 +59,7 @@ namespace FormulaOneDLL
             SqlConnection con = new SqlConnection(CONNECTION_STRING);
             using (con)
             {
-                string[] nomeTabella = { "Driver", "Country", "Team" };
+                string[] nomeTabella = { "Driver", "Country", "Team", "Race", "Circuit" };
                 con.Open();
                 for (int i = 0; i < nomeTabella.Length; i++)
                 {
