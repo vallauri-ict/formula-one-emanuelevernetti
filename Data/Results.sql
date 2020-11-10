@@ -5,6 +5,7 @@ CREATE TABLE [Result] (
   [teamId] int NOT NULL,
   [driverTime] varchar(255) NOT NULL,
   [driverPosition] int NOT NULL,
+  [driverLaps] int NOT NULL,
   [driverFastestLap] varchar(255) DEFAULT (null),
   PRIMARY KEY ([raceid], [driverId])
 );
