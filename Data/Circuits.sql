@@ -21,7 +21,7 @@ INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTy
   9,
   '1:05.619',
   'Carlos Sainz',
-  'C:\data\formulaone\img\redBullRingCircuit.jpg'
+  'C:\data\formulaone\img\redBullRingCircuit.png'
 );
 
 INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTypology, laps, turns, recordLap, recordLapOwner, img) VALUES (
@@ -34,7 +34,7 @@ INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTy
   14,
   '1:17.103',
   'Max Verstappen',
-  'C:\data\formulaone\img\hungaroringCircuit.jpg'
+  'C:\data\formulaone\img\hungaroringCircuit.png'
 );
 
 INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTypology, laps, turns, recordLap, recordLapOwner, img) VALUES (
@@ -47,7 +47,7 @@ INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTy
   18,
   '1:27.097',
   'Max Verstappen',
-  'C:\data\formulaone\img\silverstoneCircuit.jpg'
+  'C:\data\formulaone\img\silverstoneCircuit.png'
 );
 
 INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTypology, laps, turns, recordLap, recordLapOwner, img) VALUES (
@@ -60,7 +60,7 @@ INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTy
   16,
   '1:18.183',
   'Valterri Bottas',
-  'C:\data\formulaone\img\barcellonaCircuit.jpg'
+  'C:\data\formulaone\img\barcellonaCircuit.png'
 );
 
 INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTypology, laps, turns, recordLap, recordLapOwner, img) VALUES (
@@ -73,7 +73,7 @@ INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTy
   19,
   '1:46.286',
   'Valtteri Bottas',
-  'C:\data\formulaone\img\FrancorchampsCircuit.jpg'
+  'C:\data\formulaone\img\francorchampsCircuit.png'
 );
 
 INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTypology, laps, turns, recordLap, recordLapOwner, img) VALUES (
@@ -86,7 +86,7 @@ INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTy
   11,
   '1:21.046',
   'Rubens Barrichello',
-  'C:\data\formulaone\img\monzaCircuit.jpg'
+  'C:\data\formulaone\img\monzaCircuit.png'
 );
 
 INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTypology, laps, turns, recordLap, recordLapOwner, img) VALUES (
@@ -99,7 +99,7 @@ INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTy
   15,
   '1:18.833',
   'Lewis Hamilton',
-  'C:\data\formulaone\img\mugelloCircuit.jpg'
+  'C:\data\formulaone\img\mugelloCircuit.png'
 );
 
 INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTypology, laps, turns, recordLap, recordLapOwner, img) VALUES (
@@ -112,7 +112,7 @@ INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTy
   18,
   '1:35.761',
   'Lewis Hamilton',
-  'C:\data\formulaone\img\russia-sochiCircuit.jpg'
+  'C:\data\formulaone\img\russia-sochiCircuit.png'
 );
 
 INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTypology, laps, turns, recordLap, recordLapOwner, img) VALUES (
@@ -138,7 +138,7 @@ INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTy
   15,
   '1:18.750',
   'Lewis Hamilton',
-  'C:\data\formulaone\img\autodromoAlgarveCircuit.jpg'
+  'C:\data\formulaone\img\autodromoAlgarveCircuit.png'
 );
 
 INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTypology, laps, turns, recordLap, recordLapOwner, img) VALUES (
@@ -151,7 +151,7 @@ INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTy
   0,
   '1:15.484',
   'Lewis Hamilton',
-  'C:\data\formulaone\img\imolaCircuit.jpg'
+  'C:\data\formulaone\img\imolaCircuit.png'
 );
 
 INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTypology, laps, turns, recordLap, recordLapOwner, img) VALUES (
@@ -164,7 +164,7 @@ INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTy
   14,
   '1:24.770',
   'Juan Pablo Montoya',
-  'C:\data\formulaone\img\istanbulCircuit.jpg'
+  'C:\data\formulaone\img\istanbulCircuit.png'
 );
 
 INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTypology, laps, turns, recordLap, recordLapOwner, img) VALUES (
@@ -177,7 +177,7 @@ INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTy
   15,
   '1:31.447',
   'Pedro de la Rosa',
-  'C:\data\formulaone\img\barhainCircuit.jpg'
+  'C:\data\formulaone\img\barhainCircuit.png'
 );
 
 INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTypology, laps, turns, recordLap, recordLapOwner, img) VALUES (
@@ -190,7 +190,7 @@ INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTy
   11,
   '',
   '',
-  'C:\data\formulaone\img\barhainCircuit.jpg'
+  'C:\data\formulaone\img\barhainOuterCircuit.png'
 );
 
 INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTypology, laps, turns, recordLap, recordLapOwner, img) VALUES (
@@ -203,5 +203,5 @@ INSERT INTO [Circuit] (id, circuitName, circuitCountry, circuitLength, circuitTy
   21,
   '1:39.283',
   'Lewis Hamilton',
-  'C:\data\formulaone\img\yasMarinaCircuit.jpg'
+  'C:\data\formulaone\img\yasMarinaCircuit.png'
 );

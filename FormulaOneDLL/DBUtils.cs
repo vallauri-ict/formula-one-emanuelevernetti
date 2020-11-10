@@ -49,7 +49,7 @@ namespace FormulaOneDLL
                 }
                 else
                 {
-                    Console.Write("\nEsecuzione effettuata correttamente\n\n");
+                    Console.Write("Esecuzione effettuata correttamente\n");
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace FormulaOneDLL
             SqlConnection con = new SqlConnection(CONNECTION_STRING);
             using (con)
             {
-                string[] nomeTabella = { "Driver", "Country", "Team", "Race", "Circuit" };
+                string[] nomeTabella = { "Driver", "Country", "Team", "Race", "Circuit", "Result" };
                 con.Open();
                 for (int i = 0; i < nomeTabella.Length; i++)
                 {
@@ -74,9 +74,12 @@ namespace FormulaOneDLL
                         Console.WriteLine(ex.Message);
                     }
                 }
+                ExecuteSqlScript("Drivers.sql");
                 ExecuteSqlScript("Countries.sql");
                 ExecuteSqlScript("Teams.sql");
-                ExecuteSqlScript("Drivers.sql");
+                ExecuteSqlScript("Races.sql");
+                ExecuteSqlScript("Circuits.sql");
+                ExecuteSqlScript("Results.sql");
             }
         }
     }

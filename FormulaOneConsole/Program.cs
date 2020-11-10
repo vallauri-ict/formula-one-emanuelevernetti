@@ -72,12 +72,14 @@ namespace FormulaOneConsole
                         }
                     case 'D':
                         {
-                            dbUtils.ExecuteSqlScript("deleteForignKeys.sql");
+                            dbUtils.ExecuteSqlScript("deleteForeignKeys.sql");
                             break;
                         }
                     case 'R':
                         {
+                            dbUtils.ExecuteSqlScript("deleteForeignKeys.sql");
                             dbUtils.ResetDB();
+                            dbUtils.ExecuteSqlScript("createForeignKeys.sql");
                             break;
                         }
                 }
