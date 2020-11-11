@@ -3,7 +3,7 @@ CREATE TABLE [dbo].[Circuit] (
   [circuitName] varchar(255) UNIQUE NOT NULL,
   [circuitCountry] char(2) NOT NULL,
   [circuitLength] int NOT NULL,
-  [circuitTypology] varchar(255) NOT NULL,
+  [circuitTypology] varchar(255) DEFAULT (null),
   [laps] int NOT NULL,
   [turns] int NOT NULL,
   [recordLap] varchar(255) DEFAULT (null),

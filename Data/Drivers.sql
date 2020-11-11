@@ -1,13 +1,13 @@
 CREATE TABLE [dbo].[Driver] (
-  [id] int PRIMARY KEY,
-  [number] int UNIQUE NOT NULL,
+  [id] int UNIQUE NOT NULL,
+  [number] int PRIMARY KEY NOT NULL,
   [name] varchar(255) NOT NULL,
   [dob] date NOT NULL,
   [pob] varchar(255) NOT NULL,
   [helmetImg] image NOT NULL,
   [img] image DEFAULT (null),
   [teamId] int NOT NULL,
-  [podiums] int NOT NULL,
+  [podiums] int DEFAULT (0),
   [countryCode] char(2) NOT NULL
 );
 
@@ -53,32 +53,6 @@ VALUES(
 INSERT INTO [Driver]
 VALUES(
 		4,
-		4,
-		'Lando Norris',
-        CONVERT(date,'1999-11-13'),
-		'Bristol',
-		'C:\data\formulaone\img\landoNorris-Helmet.jpg',
-		'C:\data\formulaone\img\landoNorris.jpg',
-		3,
-		1,
-		'GB'       
-);
-INSERT INTO [Driver]
-VALUES(
-		5,
-		23,
-		'Alexander Albon',
-        CONVERT(date,'1999-03-23'),
-		'London',
-		'C:\data\formulaone\img\alexanderAlbon-Helmet.jpg',
-		'C:\data\formulaone\img\alexanderAlbon.jpg',
-		2,
-		1,
-		'TH'        
-);
-INSERT INTO [Driver]
-VALUES(
-		6,
 		3,
 		'Daniel Ricciardo',
         CONVERT(date,'1989-07-01'),
@@ -91,7 +65,7 @@ VALUES(
 );
 INSERT INTO [Driver]
 VALUES(
-		7,
+		5,
 		16,
 		'Charles Leclerc',
         CONVERT(date,'1997-10-16'),
@@ -104,20 +78,7 @@ VALUES(
 );
 INSERT INTO [Driver]
 VALUES(
-		8,
-		18,
-		'Lance Stroll',
-        CONVERT(date,'1998-10-29'),
-		'Montréal',
-		'C:\data\formulaone\img\lanceStroll-Helmet.jpg',
-		'C:\data\formulaone\img\lanceStroll.jpg',
-		4,
-		2,
-		'CA'        
-);
-INSERT INTO [Driver]
-VALUES(
-		9,
+		6,
 		11,
 		'Sergio Perez',
         CONVERT(date,'1990-01-26'),
@@ -127,6 +88,45 @@ VALUES(
 		4,
 		8,
 		'MX'       
+);
+INSERT INTO [Driver]
+VALUES(
+		7,
+		4,
+		'Lando Norris',
+        CONVERT(date,'1999-11-13'),
+		'Bristol',
+		'C:\data\formulaone\img\landoNorris-Helmet.jpg',
+		'C:\data\formulaone\img\landoNorris.jpg',
+		3,
+		1,
+		'GB'       
+);
+INSERT INTO [Driver]
+VALUES(
+		8,
+		55,
+		'Carlos Sainz',
+        CONVERT(date,'1994-09-01'),
+		'Madrid',
+		'C:\data\formulaone\img\carlosSainz-Helmet.jpg',
+		'C:\data\formulaone\img\carlosSainz.jpg',
+		3,
+		2,
+		'ES'        
+);
+INSERT INTO [Driver]
+VALUES(
+		9,
+		23,
+		'Alexander Albon',
+        CONVERT(date,'1999-03-23'),
+		'London',
+		'C:\data\formulaone\img\alexanderAlbon-Helmet.jpg',
+		'C:\data\formulaone\img\alexanderAlbon.jpg',
+		2,
+		1,
+		'TH'        
 );
 INSERT INTO [Driver]
 VALUES(
@@ -144,15 +144,15 @@ VALUES(
 INSERT INTO [Driver]
 VALUES(
 		11,
-		55,
-		'Carlos Sainz',
-        CONVERT(date,'1994-09-01'),
-		'Madrid',
-		'C:\data\formulaone\img\carlosSainz-Helmet.jpg',
-		'C:\data\formulaone\img\carlosSainz.jpg',
-		3,
+		18,
+		'Lance Stroll',
+        CONVERT(date,'1998-10-29'),
+		'Montréal',
+		'C:\data\formulaone\img\lanceStroll-Helmet.jpg',
+		'C:\data\formulaone\img\lanceStroll.jpg',
+		4,
 		2,
-		'ES'        
+		'CA'        
 );
 INSERT INTO [Driver]
 VALUES(
@@ -170,19 +170,6 @@ VALUES(
 INSERT INTO [Driver]
 VALUES(
 		13,
-		5,
-		'Sebastian Vettel',
-        CONVERT(date,'1987-07-03'),
-		'Heppenheim',
-		'C:\data\formulaone\img\sebastianVettel-Helmet.jpg',
-		'C:\data\formulaone\img\sebastianVettel.jpg',
-		6,
-		120,
-		'DE'        
-);
-INSERT INTO [Driver]
-VALUES(
-		14,
 		26,
 		'Daniil Kvyat',
         CONVERT(date,'1994-04-26'),
@@ -192,6 +179,19 @@ VALUES(
 		7,
 		3,
 		'RU'        
+);
+INSERT INTO [Driver]
+VALUES(
+		14,
+		5,
+		'Sebastian Vettel',
+        CONVERT(date,'1987-07-03'),
+		'Heppenheim',
+		'C:\data\formulaone\img\sebastianVettel-Helmet.jpg',
+		'C:\data\formulaone\img\sebastianVettel.jpg',
+		6,
+		120,
+		'DE'        
 );
 INSERT INTO [Driver]
 VALUES(
