@@ -12,10 +12,11 @@
         <div>
             <%--Username <asp:TextBox id="txtUserName" runat="server" /> <br />
             Password <input type = "text" id = "txtPassword" /> <br />--%>
-            <asp:Button id = "btnInvia" runat = "server" Text = "Invia" /> <br />
+            <!--<asp:Button id = "btnInvia" runat = "server" Text = "Invia" /> <br />-->
             <asp:Label id = "lblMessaggio" runat = "server" Text = " "></asp:Label><br /><br />
-            <asp:ListBox ID="lbxNazioni" runat="server" Width="500px"></asp:ListBox>
-            <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="DropDownList" runat="server" OnSelectedIndexChanged="DropDownList_SelectedIndexChanged" AutoPostBack="True">
+            </asp:DropDownList><br /><br />
+            <asp:ListBox ID="lbxNazioni" runat="server" Width="670px" Height="163px"></asp:ListBox>
         </div>
     </form>
     <div>

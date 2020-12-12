@@ -30,6 +30,47 @@ namespace FormulaOneDLL {
             return retVal;
         }
 
+        public object GetDrivers() {
+            List<string> retVal = new List<string>();
+            using (SqlConnection con = new SqlConnection()) {
+                con.ConnectionString = CONNECTION_STRING;
+                string sql = "SELECT * FROM Driver ORDER BY id ASC";
+                using (SqlCommand command = new SqlCommand(sql, con)) {
+                    con.Open();
+                    using (SqlDataReader reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            int id = reader.GetInt32(0);
+                            string name = reader.GetString(2);
+                            retVal.Add(id + "-" + name);
+                        }
+                    }
+                }
+            }
+            return retVal;
+        }
+
+        public object GetTeams() {
+            List<string> retVal = new List<string>();
+            using (SqlConnection con = new SqlConnection()) {
+                con.ConnectionString = CONNECTION_STRING;
+                string sql = "SELECT * FROM Team";
+                using (SqlCommand command = new SqlCommand(sql, con)) {
+                    con.Open();
+                    using (SqlDataReader reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            int id = reader.GetInt32(0);
+                            string teamName = reader.GetString(1);
+                            retVal.Add(id + "-" + teamName);
+                        }
+                    }
+                }
+            }
+            return retVal;
+        }
+
+
+
+
         public void ExecuteSqlScript(string sqlScriptName) {
             var fileContent = File.ReadAllText(WORKINGPATH + sqlScriptName);
             fileContent = fileContent.Replace("\r", "");

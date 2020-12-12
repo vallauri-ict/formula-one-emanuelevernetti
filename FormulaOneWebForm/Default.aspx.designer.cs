@@ -40,6 +40,15 @@ namespace FormulaOneWebForm {
         protected global::System.Web.UI.WebControls.Label lblMessaggio;
 
         /// <summary>
+        /// Controllo DropDownList.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList;
+
+        /// <summary>
         /// Controllo lbxNazioni.
         /// </summary>
         /// <remarks>
@@ -47,14 +56,5 @@ namespace FormulaOneWebForm {
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lbxNazioni;
-
-        /// <summary>
-        /// Controllo DropDownList1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
     }
 }
