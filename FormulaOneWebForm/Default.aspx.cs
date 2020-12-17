@@ -20,6 +20,7 @@ namespace FormulaOneWebForm {
                 DropDownList.Items.Add("Countries");
                 DropDownList.Items.Add("Teams");
                 DropDownList.Items.Add("Drivers");
+                DropDownList.Text = "";
             }
             else {
                 //Elaborazioni da eseguire ogni volta che la pagina viene caricata
