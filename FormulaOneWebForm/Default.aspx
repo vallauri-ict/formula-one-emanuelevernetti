@@ -17,7 +17,6 @@
             <asp:DropDownList ID="DropDownList" runat="server" OnSelectedIndexChanged ="DropDownList_SelectedIndexChanged" AutoPostBack="True">
             </asp:DropDownList><br /><br />
             <asp:GridView ID="gridViewData" runat="server"></asp:GridView>
-            <asp:ListBox ID="lbxData" runat="server" Width="670px" Height="163px"></asp:ListBox>
         </div>
     </form>
     <div>
