@@ -16,39 +16,33 @@ namespace FormulaOneWebForm {
                 //Inizializzazioni che vengono eseguite solo la prima volta che carico la pagina
                 //lblMessaggio.Text = "DIGITA USERNAME E PASSWORD, POI PREMI IL PULSANTE INVIA";
                 lblMessaggio.Text = "Selezionare una voce dalla lista";
-                DropDownList.Items.Add("");
-                DropDownList.Items.Add("Countries");
-                DropDownList.Items.Add("Teams");
-                DropDownList.Items.Add("Drivers");
+                List <string> names = DBUtils.getTables();
+                DropDownList.DataSource = names;
+                DropDownList.DataBind();
                 DropDownList.Text = "";
             }
             else {
                 //Elaborazioni da eseguire ogni volta che la pagina viene caricata
-                lbxNazioni.DataSource = null;
+                //lbxData.DataSource = null;
             }
         }
 
         protected void DropDownList_SelectedIndexChanged(object sender, EventArgs e) {
-            if (DropDownList.Items.Contains(DropDownList.Items.FindByText(""))) {
-                DropDownList.Items.Remove("");
-            }
+            DBUtils myUtils = new DBUtils();
             switch (DropDownList.SelectedValue) {
-                case "Countries": {
-                        DBUtils myUtils = new DBUtils();
-                        lbxNazioni.DataSource = myUtils.GetCountries();
-                        lbxNazioni.DataBind();
+                case "Country": {
+                        gridViewData.DataSource = myUtils.GetData("Country");
+                        gridViewData.DataBind();
                         break;
                     }
-                case "Teams": {
-                        DBUtils myUtils = new DBUtils();
-                        lbxNazioni.DataSource = myUtils.GetTeams();
-                        lbxNazioni.DataBind();
+                case "Team": {
+                        gridViewData.DataSource = myUtils.GetData("Team");
+                        gridViewData.DataBind();
                         break;
                     }
-                case "Drivers": {
-                        DBUtils myUtils = new DBUtils();
-                        lbxNazioni.DataSource = myUtils.GetDrivers();
-                        lbxNazioni.DataBind();
+                case "Driver": {
+                        gridViewData.DataSource = myUtils.GetData("Driver");
+                        gridViewData.DataBind();
                         break;
                     }
             }

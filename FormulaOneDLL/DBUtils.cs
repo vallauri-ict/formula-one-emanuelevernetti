@@ -5,71 +5,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.IO;
+using System.Data;
 
 namespace FormulaOneDLL {
     public class DBUtils {
         public const string WORKINGPATH = @"C:\data\formulaone\";
         private const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFileName=" + WORKINGPATH + @"FormulaOne.mdf;Integrated Security=True";
 
-        public List<string> GetCountries() {
-            List<string> retVal = new List<string>();
-            using (SqlConnection con = new SqlConnection()) {
-                con.ConnectionString = CONNECTION_STRING;
-                string sql = "SELECT * FROM Country";
-                using (SqlCommand command = new SqlCommand(sql, con)) {
-                    con.Open();
-                    using (SqlDataReader reader = command.ExecuteReader()) {
-                        while (reader.Read()) {
-                            string Isocode = reader.GetString(0);
-                            string country = reader.GetString(1);
-                            retVal.Add(Isocode + "-" + country);
-                        }
-                    }
-                }
-            }
+        public DataTable GetData(string table) {
+            DataTable retVal = new DataTable();
+            SqlConnection con = new SqlConnection(CONNECTION_STRING);
+            string sql = "SELECT * FROM " + table + ";";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+
+            // create data adapter
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            // this will query your database and return the result to your datatable
+            da.Fill(retVal);
+            con.Close();
+            da.Dispose();
             return retVal;
         }
 
-        public object GetDrivers() {
-            List<string> retVal = new List<string>();
-            using (SqlConnection con = new SqlConnection()) {
-                con.ConnectionString = CONNECTION_STRING;
-                string sql = "SELECT * FROM Driver ORDER BY id ASC";
-                using (SqlCommand command = new SqlCommand(sql, con)) {
-                    con.Open();
-                    using (SqlDataReader reader = command.ExecuteReader()) {
-                        while (reader.Read()) {
-                            int id = reader.GetInt32(0);
-                            string name = reader.GetString(2);
-                            retVal.Add(id + "-" + name);
-                        }
-                    }
-                }
+        public static List<string> getTables() {
+            DataTable retVal = new DataTable();
+            SqlConnection con = new SqlConnection(CONNECTION_STRING);
+            string sql = "SELECT * FROM INFORMATION_SCHEMA.TABLES";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(retVal);
+            List<string> ts = new List<string>();
+            ts.Add("--- Selezionare la tabella desiderata ---");
+            foreach (DataRow item in retVal.Rows) {
+                ts.Add((item["TABLE_NAME"].ToString()));
             }
-            return retVal;
+            return ts;
         }
-
-        public object GetTeams() {
-            List<string> retVal = new List<string>();
-            using (SqlConnection con = new SqlConnection()) {
-                con.ConnectionString = CONNECTION_STRING;
-                string sql = "SELECT * FROM Team";
-                using (SqlCommand command = new SqlCommand(sql, con)) {
-                    con.Open();
-                    using (SqlDataReader reader = command.ExecuteReader()) {
-                        while (reader.Read()) {
-                            int id = reader.GetInt32(0);
-                            string teamName = reader.GetString(1);
-                            retVal.Add(id + "-" + teamName);
-                        }
-                    }
-                }
-            }
-            return retVal;
-        }
-
-
-
 
         public void ExecuteSqlScript(string sqlScriptName) {
             var fileContent = File.ReadAllText(WORKINGPATH + sqlScriptName);
