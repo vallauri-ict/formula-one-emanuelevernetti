@@ -29,23 +29,8 @@ namespace FormulaOneWebForm {
 
         protected void DropDownList_SelectedIndexChanged(object sender, EventArgs e) {
             DBUtils myUtils = new DBUtils();
-            switch (DropDownList.SelectedValue) {
-                case "Country": {
-                        gridViewData.DataSource = myUtils.GetData("Country");
-                        gridViewData.DataBind();
-                        break;
-                    }
-                case "Team": {
-                        gridViewData.DataSource = myUtils.GetData("Team");
-                        gridViewData.DataBind();
-                        break;
-                    }
-                case "Driver": {
-                        gridViewData.DataSource = myUtils.GetData("Driver");
-                        gridViewData.DataBind();
-                        break;
-                    }
-            }
+            gridViewData.DataSource = myUtils.GetData(DropDownList.SelectedValue);
+            gridViewData.DataBind();
         }
     }
 }
