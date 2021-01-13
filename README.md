@@ -7,7 +7,7 @@
 
 1. FormulaOneConsole --> progetto Console .NET Framework che consente di svolgere le operazioni basilari sul database tramite appositi comandi DDL (Create Table, Alter Table, Add Constraint).
 2. FormulaOneDLL --> libreria contenente metodi utilizzati di frequente e quindi inseriti nella libreria per evitare ripetizioni di codice.
-3. FormulaOneWebForm --> progetto Web ASP.NET (.NET Framework)
+3. FormulaOneWebForm --> progetto Web ASP.NET (.NET Framework). Consente di visualizzare i dati contenuti nel DB tramite una DropDownList attraverso la quale è possibile andare a scegliere la tabella desiderata.
 
 Schermata principale del progetto Console: 
 ![console](https://user-images.githubusercontent.com/61801458/104514060-f1130680-55f0-11eb-91e7-4acf524c4557.png)
