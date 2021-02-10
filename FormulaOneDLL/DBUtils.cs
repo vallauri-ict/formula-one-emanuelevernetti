@@ -65,10 +65,50 @@ namespace FormulaOneDLL {
 
                 while (reader.Read())
                 {
-                    string countryCode = reader.GetString(0);
-                    string countryName = reader.GetString(1);
-                    Country c = new Country(countryCode, countryName);
-                    retVal.Add(c);
+                    int id = reader.GetInt32(0);
+                    string teamName = reader.GetString(1);
+                    byte[] teamLogo = reader["teamLogo"] as byte[];
+                    string @base = reader.GetString(3);
+                    string teamChief = reader.GetString(4);
+                    string technicalChief = reader.GetString(5);
+                    string powerUnit = reader.GetString(6);
+                    byte[] carImage = reader["carImage"] as byte[];
+                    string country = reader.GetString(8);
+                    int worldChampionships = reader.GetInt32(9);
+                    int polePositions = reader.GetInt32(10);
+                    Team t = new Team(id, teamName, teamLogo, @base, teamChief, technicalChief, powerUnit, carImage, country, worldChampionships, polePositions);
+                    retVal.Add(t);
+                }
+            }
+            return retVal;
+        }
+
+        public List<Driver> GetListDriver()
+        {
+            List<Driver> retVal = new List<Driver>();
+            using (SqlConnection dbConn = new SqlConnection())
+            {
+                dbConn.ConnectionString = CONNECTION_STRING;
+                dbConn.Open();
+                string sql = "SELECT * FROM Driver;";
+                SqlCommand cmd = new SqlCommand(sql, dbConn);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    int number = reader.GetInt32(1);
+                    string name = reader.GetString(2);
+                    DateTime dob = reader.GetDateTime(3);
+                    string pob = reader.GetString(4);
+                    byte[] helmetImg = reader["helmetImg"] as byte[];
+                    byte[] img = reader["img"] as byte[];
+                    int teamId = reader.GetInt32(7);
+                    int podiums = reader.GetInt32(8);
+                    string countryCode = reader.GetString(9);
+                    Driver d = new Driver(id, number, name, dob, pob, helmetImg, img, teamId, podiums, countryCode);
+                    retVal.Add(d);
                 }
             }
             return retVal;

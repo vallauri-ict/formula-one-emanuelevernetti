@@ -8,41 +8,41 @@ using FormulaOneDLL;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace FormulaOneWebServices.Controllers
+namespace FormulaOneWebServices
 {
-    [Route("api/team")]
+    [Route("api/driver")]
     [ApiController]
-    public class TeamController : ControllerBase
+    public class DriverController : ControllerBase
     {
-        // GET: api/<TeamController>
+        // GET: api/<DriverController>
         [HttpGet]
-        public IEnumerable<Team> Get()
+        public IEnumerable<Driver> Get()
         {
             DBUtils db = new DBUtils();
-            var wrapper = db.GetListTeam();
+            var wrapper = db.GetListDriver();
             return wrapper;
         }
 
-        // GET api/<TeamController>/5
+        // GET api/<DriverController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/<TeamController>
+        // POST api/<DriverController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<TeamController>/5
+        // PUT api/<DriverController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<TeamController>/5
+        // DELETE api/<DriverController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

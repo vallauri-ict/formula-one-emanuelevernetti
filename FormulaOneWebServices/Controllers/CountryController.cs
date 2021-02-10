@@ -11,7 +11,7 @@ using FormulaOneDLL;
 
 namespace FormulaOneWebServices
 {
-    [Route("api/[controller]")]
+    [Route("api/country")]
     [ApiController]
     public class CountryController : ControllerBase
     {
@@ -20,7 +20,8 @@ namespace FormulaOneWebServices
         public IEnumerable<Country> Get()
         {
             DBUtils db = new DBUtils();
-            return db.GetListCountry();
+            var wrapper = db.GetListCountry();
+            return wrapper;
         }
 
         // GET api/<CountryController>/5

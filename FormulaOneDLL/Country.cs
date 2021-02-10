@@ -2,13 +2,13 @@
 {
     public class Country
     {
-        public string _countryCode { get; set; }
-        public string _countryName { get; set; }
+        private string _countryCode { get; set; }
+        private string _countryName { get; set; }
 
-        public Country(string _countryCode, string _countryName)
+        public Country(string countryCode, string countryName)
         {
-            this._countryCode = _countryCode;
-            this._countryName = _countryName;
+            _countryCode = countryCode;
+            _countryName = countryName;
         }
     }
 }
