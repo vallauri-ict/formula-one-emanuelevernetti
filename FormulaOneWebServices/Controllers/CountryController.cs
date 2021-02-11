@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using FormulaOneDLL;
+using Newtonsoft.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,15 +21,15 @@ namespace FormulaOneWebServices
         public IEnumerable<Country> Get()
         {
             DBUtils db = new DBUtils();
-            var wrapper = db.GetListCountry();
-            return wrapper;
+            return db.GetListCountry();
         }
 
         // GET api/<CountryController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{code}")]
+        public Country Get(string code)
         {
-            return "value";
+            DBUtils db = new DBUtils();
+            return db.GetCountryByID(code);
         }
 
         // POST api/<CountryController>

@@ -1,23 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FormulaOneDLL
 {
     public class Driver
     {
-        private int _id;
-        private int _number;
-        private string _name;
-        private DateTime _dob;
-        private string _pob;
-        private byte[] _helmetImg;
-        private byte[] _img;
-        private int _teamId;
-        private int _podiums;
-        private string _countryCode;
+        public int _id;
+        public int _number;
+        public string _name;
+        public DateTime _dob;
+        public string _pob;
+        public byte[] _helmetImg;
+        public byte[] _img;
+        public int _teamId;
+        public int _podiums;
+        public string _countryCode;
 
         public Driver(int id, int number, string name, DateTime dob, string pob, byte[] helmetImg, byte[] img, int teamId, int podiums, string countryCode)
         {

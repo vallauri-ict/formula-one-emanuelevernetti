@@ -10,7 +10,7 @@ using System.Data;
 namespace FormulaOneDLL {
     public class DBUtils {
         public const string WORKINGPATH = @"C:\data\formulaone\";
-        private const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFileName=" + WORKINGPATH + @"FormulaOne.mdf;Integrated Security=True";
+        public const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFileName=" + WORKINGPATH + @"FormulaOne.mdf;Integrated Security=True";
 
         public DataTable GetData(string table) {
             DataTable retVal = new DataTable();
@@ -26,6 +26,88 @@ namespace FormulaOneDLL {
             con.Close();
             da.Dispose();
             return retVal;
+        }
+
+        public Driver GetDriverByID(int code)
+        {
+            using (SqlConnection dbConn = new SqlConnection())
+            {
+                dbConn.ConnectionString = CONNECTION_STRING;
+                dbConn.Open();
+                string sql = "SELECT * FROM Driver WHERE id=@id";
+                SqlCommand cmd = new SqlCommand(sql, dbConn);
+                cmd.Parameters.AddWithValue("@id", code);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    int number = reader.GetInt32(1);
+                    string name = reader.GetString(2);
+                    DateTime dob = reader.GetDateTime(3);
+                    string pob = reader.GetString(4);
+                    byte[] helmetImg = reader["helmetImg"] as byte[];
+                    byte[] img = reader["img"] as byte[];
+                    int teamId = reader.GetInt32(7);
+                    int podiums = reader.GetInt32(8);
+                    string countryCode = reader.GetString(9);
+                    return new Driver(id, number, name, dob, pob, helmetImg, img, teamId, podiums, countryCode);
+                }
+            }
+            return null;
+        }
+
+        public Team GetTeamByID(int code)
+        {
+            using (SqlConnection dbConn = new SqlConnection())
+            {
+                dbConn.ConnectionString = CONNECTION_STRING;
+                dbConn.Open();
+                string sql = "SELECT * FROM Team WHERE id=@id";
+                SqlCommand cmd = new SqlCommand(sql, dbConn);
+                cmd.Parameters.AddWithValue("@id", code);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string teamName = reader.GetString(1);
+                    byte[] teamLogo = reader["teamLogo"] as byte[];
+                    string @base = reader.GetString(3);
+                    string teamChief = reader.GetString(4);
+                    string technicalChief = reader.GetString(5);
+                    string powerUnit = reader.GetString(6);
+                    byte[] carImage = reader["carImage"] as byte[];
+                    string country = reader.GetString(8);
+                    int worldChampionships = reader.GetInt32(9);
+                    int polePositions = reader.GetInt32(10);
+                    return new Team(id, teamName, teamLogo, @base, teamChief, technicalChief, powerUnit, carImage, country, worldChampionships, polePositions);
+                }
+            }
+            return null;
+        }
+
+        public Country GetCountryByID(string code)
+        {
+            using (SqlConnection dbConn = new SqlConnection())
+            {
+                dbConn.ConnectionString = CONNECTION_STRING;
+                dbConn.Open();
+                string sql = "SELECT * FROM Country WHERE '" + code + "'=countryCode";
+                SqlCommand cmd = new SqlCommand(sql, dbConn);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string countryCode = reader.GetString(0);
+                    string countryName = reader.GetString(1);
+                    return new Country(countryCode, countryName);
+                }
+            }
+            return null;
         }
 
         public List<Country> GetListCountry()

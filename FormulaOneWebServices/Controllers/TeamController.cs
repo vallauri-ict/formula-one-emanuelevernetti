@@ -19,15 +19,15 @@ namespace FormulaOneWebServices.Controllers
         public IEnumerable<Team> Get()
         {
             DBUtils db = new DBUtils();
-            var wrapper = db.GetListTeam();
-            return wrapper;
+            return db.GetListTeam();
         }
 
         // GET api/<TeamController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{code}")]
+        public Team Get(int code)
         {
-            return "value";
+            DBUtils db = new DBUtils();
+            return db.GetTeamByID(code);
         }
 
         // POST api/<TeamController>

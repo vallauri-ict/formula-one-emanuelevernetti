@@ -2,8 +2,8 @@
 {
     public class Country
     {
-        private string _countryCode { get; set; }
-        private string _countryName { get; set; }
+        public string _countryCode { get; set; }
+        public string _countryName { get; set; }
 
         public Country(string countryCode, string countryName)
         {

@@ -1,20 +1,18 @@
-﻿using System;
-
-namespace FormulaOneDLL
+﻿namespace FormulaOneDLL
 {
     public class Team
     {
-        private int _id { get; set; }
-        private string _teamName { get; set; }
-        private byte[] _teamLogo { get; set; }
-        private string _base { get; set; }
-        private string _teamChief { get; set; }
-        private string _technicalChief { get; set; }
-        private string _powerUnit { get; set; }
-        private byte[] _carImage { get; set; }
-        private string _country { get; set; }
-        private int _worldChampionships { get; set; }
-        private int _polePositions { get; set; }
+        public int _id { get; set; }
+        public string _teamName { get; set; }
+        public byte[] _teamLogo { get; set; }
+        public string _base { get; set; }
+        public string _teamChief { get; set; }
+        public string _technicalChief { get; set; }
+        public string _powerUnit { get; set; }
+        public byte[] _carImage { get; set; }
+        public string _country { get; set; }
+        public int _worldChampionships { get; set; }
+        public int _polePositions { get; set; }
 
         public Team(int id, string teamName, byte[] teamLogo, string @base, string teamChief, string technicalChief, string powerUnit, byte[] carImage, string country, int worldChampionships, int polePositions)
         {

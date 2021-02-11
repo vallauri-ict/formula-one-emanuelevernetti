@@ -19,15 +19,15 @@ namespace FormulaOneWebServices
         public IEnumerable<Driver> Get()
         {
             DBUtils db = new DBUtils();
-            var wrapper = db.GetListDriver();
-            return wrapper;
+            return db.GetListDriver();
         }
 
         // GET api/<DriverController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{code}")]
+        public Driver Get(int code)
         {
-            return "value";
+            DBUtils db = new DBUtils();
+            return db.GetDriverByID(code);
         }
 
         // POST api/<DriverController>
