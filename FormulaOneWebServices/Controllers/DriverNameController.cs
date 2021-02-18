@@ -1,48 +1,48 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FormulaOneDLL;
+
+using Microsoft.AspNetCore.Mvc;
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FormulaOneDLL;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace FormulaOneWebServices
+namespace FormulaOneWebServices.Controllers
 {
-    [Route("api/team")]
+    [Route("api/drivername")]
     [ApiController]
-    public class TeamController : ControllerBase
+    public class DriverNameController : ControllerBase
     {
-        // GET: api/<TeamController>
+        // GET: api/<DriverNameController>
         [HttpGet]
-        public IEnumerable<Team> Get()
+        public IEnumerable<string> Get()
         {
-            DBUtils db = new DBUtils();
-            return db.GetListTeam();
+            return new string[] { "value1", "value2" };
         }
 
-        // GET api/<TeamController>/5
-        [HttpGet("{code}")]
-        public Team Get(int code)
+        // GET api/<DriverNameController>/5
+        [HttpGet("{name}")]
+        public Driver Get(string name)
         {
             DBUtils db = new DBUtils();
-            return db.GetTeamByID(code);
+            return db.GetDriverByName(name);
         }
 
-        // POST api/<TeamController>
+        // POST api/<DriverNameController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<TeamController>/5
+        // PUT api/<DriverNameController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<TeamController>/5
+        // DELETE api/<DriverNameController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

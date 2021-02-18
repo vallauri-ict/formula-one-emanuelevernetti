@@ -10,39 +10,38 @@ using FormulaOneDLL;
 
 namespace FormulaOneWebServices
 {
-    [Route("api/team")]
+    [Route("api/teamname")]
     [ApiController]
-    public class TeamController : ControllerBase
+    public class TeamNameController : ControllerBase
     {
-        // GET: api/<TeamController>
+        // GET: api/<TeamNameController>
         [HttpGet]
-        public IEnumerable<Team> Get()
+        public IEnumerable<string> Get()
         {
-            DBUtils db = new DBUtils();
-            return db.GetListTeam();
+            return new string[] { "value1", "value2" };
         }
 
-        // GET api/<TeamController>/5
-        [HttpGet("{code}")]
-        public Team Get(int code)
+        // GET api/<TeamNameController>/5
+        [HttpGet("{name}")]
+        public Team Get(string name)
         {
             DBUtils db = new DBUtils();
-            return db.GetTeamByID(code);
+            return db.GetTeamByName(name);
         }
 
-        // POST api/<TeamController>
+        // POST api/<TeamNameController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<TeamController>/5
+        // PUT api/<TeamNameController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<TeamController>/5
+        // DELETE api/<TeamNameController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
