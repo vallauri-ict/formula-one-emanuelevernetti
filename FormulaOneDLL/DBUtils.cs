@@ -6,11 +6,93 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.IO;
 using System.Data;
+using FormulaOneDLL.DTO;
 
-namespace FormulaOneDLL {
-    public class DBUtils {
+namespace FormulaOneDLL
+{
+    public class DBUtils
+    {
         public const string WORKINGPATH = @"C:\data\formulaone\";
         public const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFileName=" + WORKINGPATH + @"FormulaOne.mdf;Integrated Security=True";
+
+        public dtoDriver GetDriverDetails(string name)
+        {
+            using (SqlConnection dbConn = new SqlConnection())
+            {
+                dbConn.ConnectionString = CONNECTION_STRING;
+                dbConn.Open();
+                string sql = "SELECT * FROM Driver WHERE name=@name";
+                SqlCommand cmd = new SqlCommand(sql, dbConn);
+                cmd.Parameters.AddWithValue("@name", name);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                string _name = reader.GetString(2);
+                int _number = reader.GetInt32(1);
+                string _countryCode = reader.GetString(9);
+                int _podiums = reader.GetInt32(8);
+                DateTime _dob = reader.GetDateTime(3);
+                string _pob = reader.GetString(4);
+                byte[] helmetImg = reader["helmetImg"] as byte[];
+                byte[] img = reader["img"] as byte[];
+
+                int teamId = reader.GetInt32(7);
+                reader.Close();
+
+                sql = "SELECT * FROM Team WHERE id=@teamId";
+                SqlCommand cmd2 = new SqlCommand(sql, dbConn);
+                cmd2.Parameters.AddWithValue("@teamId", teamId);
+
+                SqlDataReader reader2 = cmd2.ExecuteReader();
+                reader2.Read();
+
+                string _teamName = reader2.GetString(1);
+                return new dtoDriver(_name, _number, _teamName, _countryCode, _podiums, _dob, _pob, helmetImg, img);
+            }
+        }
+
+        public dtoTeam GetTeamDetails(string name)
+        {
+            using (SqlConnection dbConn = new SqlConnection())
+            {
+                dbConn.ConnectionString = CONNECTION_STRING;
+                dbConn.Open();
+                string sql = "SELECT * FROM Team WHERE teamName=@name";
+                SqlCommand cmd = new SqlCommand(sql, dbConn);
+                cmd.Parameters.AddWithValue("@name", name);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                int id = reader.GetInt32(0);
+                string teamName = reader.GetString(1);
+                byte[] teamLogo = reader["teamLogo"] as byte[];
+                string @base = reader.GetString(3);
+                string teamChief = reader.GetString(4);
+                string technicalChief = reader.GetString(5);
+                string powerUnit = reader.GetString(6);
+                byte[] carImage = reader["carImage"] as byte[];
+                string country = reader.GetString(8);
+                int worldChampionships = reader.GetInt32(9);
+                int polePositions = reader.GetInt32(10);
+
+                reader.Close();
+
+                sql = "SELECT * FROM Driver WHERE teamId=@teamId";
+                SqlCommand cmd2 = new SqlCommand(sql, dbConn);
+                cmd2.Parameters.AddWithValue("@teamId", id);
+
+                SqlDataReader reader2 = cmd2.ExecuteReader();
+                reader2.Read();
+                int number1 = reader2.GetInt32(1);
+                string name1 = reader2.GetString(2);
+                reader2.Read();
+                int number2 = reader2.GetInt32(1);
+                string name2 = reader2.GetString(2);
+
+                return new dtoTeam(id, teamName, teamLogo, @base, teamChief, technicalChief, powerUnit, carImage, country, worldChampionships, polePositions, number1, name1, number2, name2);
+
+            }
+        }
 
         public List<Team> GetListTeam()
         {
@@ -242,7 +324,7 @@ namespace FormulaOneDLL {
         }
 
         /****************************************************************************************************************/
-        
+
         public DataTable GetData(string table)
         {
             DataTable retVal = new DataTable();
@@ -260,7 +342,8 @@ namespace FormulaOneDLL {
             return retVal;
         }
 
-        public static List<string> getTables() {
+        public static List<string> getTables()
+        {
             DataTable retVal = new DataTable();
             SqlConnection con = new SqlConnection(CONNECTION_STRING);
             string sql = "SELECT * FROM INFORMATION_SCHEMA.TABLES";
@@ -271,13 +354,15 @@ namespace FormulaOneDLL {
             da.Fill(retVal);
             List<string> ts = new List<string>();
             ts.Add("--- Selezionare la tabella desiderata ---");
-            foreach (DataRow item in retVal.Rows) {
+            foreach (DataRow item in retVal.Rows)
+            {
                 ts.Add((item["TABLE_NAME"].ToString()));
             }
             return ts;
         }
 
-        public void ExecuteSqlScript(string sqlScriptName) {
+        public void ExecuteSqlScript(string sqlScriptName)
+        {
             var fileContent = File.ReadAllText(WORKINGPATH + sqlScriptName);
             fileContent = fileContent.Replace("\r", "");
             fileContent = fileContent.Replace("\n", "");
@@ -286,43 +371,54 @@ namespace FormulaOneDLL {
 
             SqlConnection con = new SqlConnection(CONNECTION_STRING);
 
-            using (con) {
+            using (con)
+            {
                 SqlCommand cmd = new SqlCommand("query", con);
                 con.Open();
                 int i = 0;
                 int nErr = 0;
-                foreach (var query in sqlqueries) {
+                foreach (var query in sqlqueries)
+                {
                     cmd.CommandText = query;
                     i++;
-                    try {
+                    try
+                    {
                         cmd.ExecuteNonQuery();
                     }
-                    catch (SqlException ex) {
+                    catch (SqlException ex)
+                    {
                         Console.WriteLine("Errore durante l'esecuzione della query " + i + "\n" + ex.Message);
                         nErr++;
                     }
                 }
-                if (nErr != 0) {
+                if (nErr != 0)
+                {
                     Console.WriteLine("Si sono verificati " + nErr + " errori");
                 }
-                else {
+                else
+                {
                     Console.Write("Esecuzione effettuata correttamente\n");
                 }
             }
         }
 
-        public void ResetDB() {
+        public void ResetDB()
+        {
             SqlConnection con = new SqlConnection(CONNECTION_STRING);
-            using (con) {
+            using (con)
+            {
                 string[] nomeTabella = { "Driver", "Country", "Team", "Race", "Circuit", "Result" };
                 con.Open();
-                for (int i = 0; i < nomeTabella.Length; i++) {
+                for (int i = 0; i < nomeTabella.Length; i++)
+                {
                     SqlCommand cmd = new SqlCommand("DROP TABLE IF EXISTS " + nomeTabella[i] + ";", con);
-                    try {
+                    try
+                    {
                         cmd.ExecuteNonQuery();
                         Console.WriteLine("Tabella " + nomeTabella[i] + " eliminata correttamente");
                     }
-                    catch (Exception ex) {
+                    catch (Exception ex)
+                    {
                         Console.WriteLine(ex.Message);
                     }
                 }
