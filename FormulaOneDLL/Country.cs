@@ -10,5 +10,10 @@
             _countryCode = countryCode;
             _countryName = countryName;
         }
+
+        public override string ToString()
+        {
+            return _countryCode + " - " + _countryName;
+        }
     }
 }

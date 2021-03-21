@@ -44,7 +44,6 @@ namespace FormulaOneWebForm
                 {
                     StreamReader reader = new StreamReader(response.GetResponseStream());
                     apiResponse = reader.ReadToEnd();
-                    // var oCountry = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(apiResponse);
                     Country[] oCountry = Newtonsoft.Json.JsonConvert.DeserializeObject<Country[]>(apiResponse);
                     lbxNazioni.DataSource = oCountry;
                     lbxNazioni.DataBind();
