@@ -7,10 +7,12 @@
 // </generato automaticamente>
 //------------------------------------------------------------------------------
 
-namespace FormulaOneWebForm {
+namespace FormulaOneWebForm
+{
 
 
-    public partial class Default {
+    public partial class Default
+    {
 
         /// <summary>
         /// Controllo form1.
@@ -20,6 +22,15 @@ namespace FormulaOneWebForm {
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+        /// Controllo txtUserName.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUserName;
 
         /// <summary>
         /// Controllo btnInvia.
@@ -40,21 +51,21 @@ namespace FormulaOneWebForm {
         protected global::System.Web.UI.WebControls.Label lblMessaggio;
 
         /// <summary>
-        /// Controllo DropDownList.
+        /// Controllo dgvTabella.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList;
+        protected global::System.Web.UI.WebControls.GridView dgvTabella;
 
         /// <summary>
-        /// Controllo gridViewData.
+        /// Controllo lbxNazioni.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridViewData;
+        protected global::System.Web.UI.WebControls.ListBox lbxNazioni;
     }
 }
